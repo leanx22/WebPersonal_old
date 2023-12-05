@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!--METAs-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Leandro Guia">
+  <meta name="description" content="Programador backend con conocimientos en lenguajes como PHP, C#, C, entre otros. Actual estudiante de una tecnicatura en búsqueda de oportunidades laborales.">
+  <meta name="keywords" content="programador,backend,junior,trainee,busqueda laboral,trabajo,estudiante,pasantia,C#,C,html,css,bootstrap,php,typescript,porfolio,portfolio">
+
+  <!--BOOSTRAP-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  
+  <!--icons-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
+  <!--CSS-->
+  <link rel="stylesheet" href="/styles/indexStyle.css">
+
+  <!--Pagina-->
+  <link rel="icon" type="image/x-icon" href="/img/favicon.png">
+  <title>Leandro Guia | Backend Developer</title>
+</head>
+<body>
+  <!--Barra-->
+  <nav class="navbar navbar-expand-sm bg-body-tertiary" data-bs-theme="dark">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar-toggler">
+        <ul class="navbar-nav d-flex justify-content-center align-items-center">
+          <li class="nav-item">
+            <a class="nav-link" href="#proyectos">MIS PROYECTOS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#conocimientos">CONOCIMIENTOS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#educacion">EDUCACION</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!--Header-->
+  <div class="container-fluid topHeader">
+    
+    <div class="row h-100">
+
+      <div class="col-12 col-lg-6 d-flex align-items-end align-items-lg-center justify-content-center text-center text-lg-start">
+        <h1>LEANDRO GUIA</h1>
+      </div>
+
+      <div class="col-12 col-lg-6 d-flex flex-row flex-lg-column justify-content-center align-items-center">
+        <a href="#" class="btn btn-outline-light">
+          CV
+        </a>
+        <a href="https://github.com/leanx22" target="_blank" class="btn btn-outline-light midBtn">
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/leandro-guia-dev" target="_blank" class="btn btn-outline-light">
+          LinkedIn
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!--Sobre mi - Proyectos-->
+  <div class="container-fluid">
+    
+    <div class="row d-flex aboutMe">
+      <!--Imagen-->
+      <div class="col-12 col-sm-4 col-xl-2 d-flex align-items-center justify-content-center justify-content-sm-end justify-content-lg-center border border-2 border-dark bg-dark">
+        <img class="rounded-circle" src="/img/personal/miFotoSmall.jpg">
+      </div>
+      
+      <!--Sobre mi-->
+      <div class="col-12 col-sm-8 col-xl-10 border border-2 border-dark bg-light">
+        <div class="card-body">
+          <h2 class="card-title">SOBRE MÍ</h2>
+          <p class="card-text">
+            Actualmente tengo 21 años, estudiante de una <strong>Tecnicatura universitaria en programación</strong> en la universidad
+                  <a href="https://fra.utn.edu.ar/" target="_blank">UTN-FRA</a>.
+                  Mi camino en la programacion es impulsado por una curiosidad innata y el anhelo de enfrentar nuevos desafíos. Me considero una persona 
+                  responsable, seria y comprometida.
+                  Actualmente busco formar parte de una empresa que me permita demostrar y aplicar mis conocimientos, que me brinde la posibilidad de crecer y 
+                  mejorar mi habilidad en el código cada día. Mantengo un firme compromiso con la educación continua para mantenerme al tanto de las últimas 
+                  tendencias y evoluciones en el mundo de la programación.
+          </p>
+          <p class="card-text"><small class="text-body-secondary">"Los que buscan mejorar, mejoran."</small></p>
+        </div> 
+      </div>
+      
+    </div>
+
+    <!--titulo-->
+    <div class="projTitle row" id="proyectos">
+      <div class="d-flex justify-content-center bg-dark-subtle">
+        <h2>ALGUNOS PROYECTOS</h2>
+      </div>
+    </div>
+
+    <!--Proyectos 420x240-->
+    <div class="proyectos row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 bg-dark">
+      <div class="col">
+        <div class="card h-100">
+          <img src="./img/proyectos/consola.jpg" class="card-img-top" alt="imagen del proyecto">
+          <div class="card-body">
+            <h5 class="card-title">Administrador de películas</h5>
+            <p class="card-text">Aplicación de consola que permite el <strong>filtrado de un listado de películas</strong> por género, duración, etc e incluso guardar e importar desde <strong>archivos</strong>. Programada en <strong>C</strong>.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="./img/proyectos/placeHolder.jpg" class="card-img-top" alt="imagen del proyecto">
+          <div class="card-body">
+            <h5 class="card-title">CRUD Juguetería</h5>
+            <p class="card-text">Aplicación tipo API Rest para acciones de alta, baja y modificación de juguetes haciendo uso de <strong>Slim Framework, PHP, y JWT</strong>.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="./img/proyectos/uno.jpg" class="card-img-top" alt="imagen del proyecto">
+          <div class="card-body">
+            <h5 class="card-title">UNO!</h5>
+            <p class="card-text">
+              Una copia del famoso juego de cartas UNO, recreado en <strong>C#</strong> utilizando <strong>windowsForms</strong> para la parte gráfica y <strong>multihilo</strong> para permitir partidas múltiples.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="./img/proyectos/web.jpg" class="card-img-top" alt="imagen del proyecto">
+          <div class="card-body">
+            <h5 class="card-title">WebPersonal</h5>
+            <p class="card-text">El código de la página actual, creada utilizando <strong>HTML</strong>, <strong>CSS/Bootstrap</strong> y <strong>Slim Framework</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!--Conocimientos-->
+  <div class="container mt-4">
+    
+    <div class="conocimientos d-flex justify-content-center mt-5 mb-5" id="conocimientos">
+      <h2>CONOCIMIENTOS EN:</h2>
+    </div>
+
+    <div class="conocimientos-imgs row mt-5">
+
+        <div class="col-6 col-md-3 d-flex justify-content-center">
+            <img src="/img/tecnologias/c-144.png" alt="Logo 1" class="img-fluid">
+        </div>
+
+        <div class="col-6 col-md-3 d-flex justify-content-center">
+          <img src="/img/tecnologias/cSharp-144.png" alt="Logo 1" class="img-fluid">
+        </div>
+
+        <div class="col-6 col-md-3 d-flex justify-content-center">
+          <img src="/img/tecnologias/mysql-logo-144.png" alt="Logo 1" class="img-fluid">
+        </div>
+
+        <div class="col-6 col-md-3 d-flex justify-content-center">
+          <img src="/img/tecnologias/php-144.png" alt="Logo 1" class="img-fluid">
+        </div>
+
+
+        <div class="col-6 col-md-3 d-flex justify-content-center">
+          <img src="/img/tecnologias/typescript-144.png" alt="Logo 1" class="img-fluid">
+        </div>
+
+        <div class="col-6 col-md-3 d-flex justify-content-center">
+          <img src="/img/tecnologias/html-144.png" alt="Logo 1" class="img-fluid">
+        </div>
+
+        <div class="col-6 col-md-3 d-flex justify-content-center">
+          <img src="/img/tecnologias/css-144.png" alt="Logo 1" class="img-fluid">
+        </div>
+
+        <div class="col-6 col-md-3 d-flex justify-content-center">
+          <img src="/img/tecnologias/bootstrap-144.png" alt="Logo 1" class="img-fluid">
+        </div>
+
+        <div class="col-6 col-md-3 d-flex justify-content-center">
+          <img src="/img/tecnologias/jquery-144.png" alt="Logo 1" class="img-fluid">
+        </div>
+
+        <div class="col-6 col-md-3 d-flex justify-content-center">
+          <img src="/img/tecnologias/node.js-144.png" alt="Logo 1" class="img-fluid">
+        </div>
+
+        <div class="col-6 col-md-3 d-flex justify-content-center">
+          <img src="/img/tecnologias/slim-144.png" alt="Logo 1" class="img-fluid">
+        </div>
+
+        <div class="col-6 col-md-3 d-flex justify-content-center">
+          <img src="/img/tecnologias/sql-server-144.png" alt="Logo 1" class="img-fluid">
+        </div>
+
+    </div>
+  </div>
+
+  <!--Educacion-->
+  <section>
+    
+    <div class="educacion container-fluid d-flex flex-column justify-content-center bg-dark-subtle pt-5" id="educacion">
+
+      <div class="row d-flex justify-content-center">
+        <h2>EDUCACION</h2>  
+      </div>
+          
+
+      <div class="row d-flex justify-content-center mt-5">
+        <div class="col-12 col-sm-4 col-xl-2 d-flex align-items-center justify-content-center justify-content-sm-end justify-content-lg-center border border-2 border-dark bg-dark">
+          <img class="rounded-circle" src="/img/extras/UTN-small-logo.jpg">
+        </div>
+        <div class="tarjeta col-12 col-sm-8 col-xl-10 border border-2 border-dark bg-light">
+          <div class="card-body">
+            <h3 class="card-title">Tecnicatura superior en programación.</h3>
+            <p class="card-text">
+              Actualmente cursando en <a href="https://fra.utn.edu.ar/" target="_blank">UTN-FRA</a>. <br>Donde
+              he conseguido la gran mayoria de mis conocimientos hasta el momento y donde desarrollé distintos 
+              proyectos propuestos en la cursada.
+            </p>
+            <p class="card-text">
+              <small class="text-body-secondary">FECHA DE INICIO 2022 - EN CURSO</small>
+            </p>
+          </div> 
+        </div>
+      </div>
+      
+      <div class="row d-flex justify-content-center mt-3 mb-5">
+        <div class="col-12 col-sm-4 col-xl-2 d-flex align-items-center justify-content-center justify-content-sm-end justify-content-lg-center border border-2 border-dark bg-dark">
+          <img class="rounded-circle" src="/img/extras/Regina-logo.png">
+        </div>
+        <div class="tarjeta col-12 col-sm-8 col-xl-10 border border-2 border-dark bg-light">
+          <div class="card-body">
+            <h3 class="card-title">Secundario.</h3>
+            <p class="card-text">
+              Estudié en el intituto privado Regina Apostolorum, ubicado en Rafael Calzada. Donde
+              me "especialicé" en economía.
+            </p>
+            <p class="card-text">
+              <small class="text-body-secondary">COMPLETO</small>
+            </p>
+          </div> 
+        </div>
+      </div>
+
+    </div>
+    
+  </section>
+
+  <!--Footer-->
+  <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <i class="bi bi-pc-display"></i>
+        </a>
+        <span class="mb-3 mb-md-0 text-muted">2023 Leandro Guia</span>
+      </div>
+  
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-house-fill"></i></a></li>
+        <li class="ms-3"><a class="text-muted" href = "mailto: leandro.guia.dev@gmail.com"><i class="bi bi-envelope-arrow-up-fill"></i></a></li>
+        <li class="ms-3"><a class="text-muted" href="https://www.linkedin.com/in/leandro-guia-dev" target="_blank"><i class="bi bi-linkedin"></i></a></li>
+        <li class="ms-3"><a class="text-muted" href="https://github.com/leanx22" target="_blank"><i class="bi bi-github"></i></a></li>
+      </ul>
+    </footer>
+  </div>
+
+  <!--Bootstrap-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@300;400&family=Roboto:wght@500&display=swap');
+
+.navbar{
+    padding-top: 8px;
+    color:white;
+}
+
+.navbar-collapse{
+    align-items: center;
+    justify-content: center;
+}
+
+.topHeader{
+    background-color: rgb(36, 39, 43);
+    min-height: 275px;
+    height: 392px;
+    margin:0;
+}
+
+.topHeader h1{
+    font-size: 128px;
+    color: white;
+    font-family: 'Bebas neue';
+    margin:0;
+}
+
+.topHeader .btn{
+    width: 425px;
+    height: 48px;
+    border-radius: 45px;
+    text-align: center;
+    padding-top: 10px;
+    font-weight: 700;
+}
+
+.topHeader .midBtn{
+    margin:25px;
+}
+
+.aboutMe{
+    padding : 15px;
+}
+
+
+.aboutMe img{
+    max-width: 224px;
+    max-height: 224px;
+    
+    min-height: 120px;
+    min-width: 120px;
+
+    margin-top:5px;
+    margin-bottom: 5px;
+}
+
+.aboutMe p{
+    font-weight: 600;
+}
+
+
+.aboutMe a{
+    text-decoration: none;
+    color: rgb(85, 142, 160);
+    padding: 4px;
+}
+
+.aboutMe a:hover{
+    text-decoration: none;
+    color: white;
+    background-color: rgb(41, 41, 41);
+    border-radius: 25px;
+}
+
+.projTitle{
+    margin-bottom: 0px;
+    border-top: 2px dashed;
+}
+
+.projTitle h2{
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.proyectos{
+    min-width: 100%;
+    margin-top:0px;
+    padding-bottom: 25px;
+}
+
+.conocimientos h2{
+    font-size: 54px;
+    font-weight: 100;
+    text-align: center;
+}
+
+.conocimientos-imgs img{
+    margin-bottom: 45px;
+}
+
+
+.educacion{
+    padding : 15px;
+}
+
+
+.educacion img{
+    max-width: 224px;
+    max-height: 224px;
+    
+    min-height: 120px;
+    min-width: 120px;
+
+    margin-top:5px;
+    margin-bottom: 5px;
+}
+
+.educacion p{
+    font-weight: 300;
+}
+
+
+.educacion a{
+    text-decoration: none;
+    color: rgb(85, 142, 160);
+    padding: 4px;
+}
+
+.educacion a:hover{
+    text-decoration: none;
+    color: white;
+    background-color: rgb(41, 41, 41);
+    border-radius: 25px;
+}
+
+.educacion h2{
+    font-size: 54px;
+    font-weight: 100;
+    text-align: center;
+}
+
+.tarjeta{
+    max-width: 800px;
+}
