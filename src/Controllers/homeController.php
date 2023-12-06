@@ -1,6 +1,8 @@
 <?php
 namespace App\Controllers;
 
+require_once __DIR__.'/../Models/Proyecto.php';
+
 use App\Models\Proyecto;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -11,9 +13,8 @@ class HomeController{
 
     static function index(Request $peticion, Response $respuesta)
     {
-        //$proyectos = Proyecto::obtenerTodos();
-        //$args = array("proyectos"=>$proyectos);        
-        $args = array();   
+        $proyectos = Proyecto::obtenerTodos();
+        $args = array("proyectos"=>$proyectos);         
         $view = Twig::fromRequest($peticion);
         return $view->render($respuesta, 'index.html', $args);
     }

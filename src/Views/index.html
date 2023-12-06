@@ -75,7 +75,7 @@
     <div class="row d-flex aboutMe">
       <!--Imagen-->
       <div class="col-12 col-sm-4 col-xl-2 d-flex align-items-center justify-content-center justify-content-sm-end justify-content-lg-center border border-2 border-dark bg-dark">
-        <img class="rounded-circle" src="/img/personal/miFotoSmall.jpg">
+        <img class="rounded-circle" src="/img/personal/miFoto.jpg">
       </div>
       
       <!--Sobre mi-->
@@ -100,50 +100,25 @@
     <!--titulo-->
     <div class="projTitle row" id="proyectos">
       <div class="d-flex justify-content-center bg-dark-subtle">
-        <h2>ALGUNOS PROYECTOS</h2>
+        <h2>PROYECTOS</h2>
       </div>
     </div>
 
-    <!--Proyectos 420x240-->
+    <!--Proyectos-->
     <div class="proyectos row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 bg-dark">
-      <div class="col">
-        <div class="card h-100">
-          <img src="./img/proyectos/consola.jpg" class="card-img-top" alt="imagen del proyecto">
-          <div class="card-body">
-            <h5 class="card-title">Administrador de películas</h5>
-            <p class="card-text">Aplicación de consola que permite el <strong>filtrado de un listado de películas</strong> por género, duración, etc e incluso guardar e importar desde <strong>archivos</strong>. Programada en <strong>C</strong>.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="./img/proyectos/placeHolder.jpg" class="card-img-top" alt="imagen del proyecto">
-          <div class="card-body">
-            <h5 class="card-title">CRUD Juguetería</h5>
-            <p class="card-text">Aplicación tipo API Rest para acciones de alta, baja y modificación de juguetes haciendo uso de <strong>Slim Framework, PHP, y JWT</strong>.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="./img/proyectos/uno.jpg" class="card-img-top" alt="imagen del proyecto">
-          <div class="card-body">
-            <h5 class="card-title">UNO!</h5>
-            <p class="card-text">
-              Una copia del famoso juego de cartas UNO, recreado en <strong>C#</strong> utilizando <strong>windowsForms</strong> para la parte gráfica y <strong>multihilo</strong> para permitir partidas múltiples.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="./img/proyectos/web.jpg" class="card-img-top" alt="imagen del proyecto">
-          <div class="card-body">
-            <h5 class="card-title">WebPersonal</h5>
-            <p class="card-text">El código de la página actual, creada utilizando <strong>HTML</strong>, <strong>CSS/Bootstrap</strong> y <strong>Slim Framework</strong>.</p>
-          </div>
-        </div>
-      </div>
+      {% for proyecto in proyectos %}
+            <div class="col">
+                <div class="card h-100">
+                    <img src="/img/proyectos/{{ proyecto.getPathFoto() }}"" class="card-img-top" alt="imagen del proyecto"> <!--Va con ''??-->
+                    <div class="card-body">
+                        <h5 class="card-title">{{ proyecto.getTitulo() }}</h5>
+                        <p class="card-text"> 
+                          {{ proyecto.obtenerDescripcion()|raw }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
     </div>
 
   </div>
