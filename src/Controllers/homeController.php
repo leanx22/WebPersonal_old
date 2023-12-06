@@ -13,7 +13,7 @@ class HomeController{
 
     static function index(Request $peticion, Response $respuesta)
     {
-        $proyectos = Proyecto::obtenerTodos();
+        $proyectos = Proyecto::obtenerSoloActivos();
         $args = array("proyectos"=>$proyectos);         
         $view = Twig::fromRequest($peticion);
         return $view->render($respuesta, 'index.html', $args);
