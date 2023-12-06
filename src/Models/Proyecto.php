@@ -106,7 +106,17 @@ class Proyecto
             return $retorno;
         }
 
-        $retorno = file_get_contents($path_files.$this->desc);
+        $lectura = file_get_contents($path_files.$this->desc);
+        $array_descs = json_decode($lectura,true);
+        
+        foreach($array_descs as $descripcion)
+        {
+            if($descripcion["id"] == $this->id)
+            {
+                $retorno = $descripcion["desc"];
+                break;
+            }
+        }
         return $retorno;
     }
 
