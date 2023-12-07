@@ -1,3 +1,5 @@
 vendor
 backupIndex
 info.txt
+src/extra/JWT/pass.txt
+node_modules
