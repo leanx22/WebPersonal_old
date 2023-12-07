@@ -13,6 +13,13 @@
     <!--CSS-->
     <link rel="stylesheet" href="/styles/loginStyle.css">
 
+    <!--JQUERY-->>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!--Scripts-->
+    <script type="text/javascript" src="/Scripts/links.js"></script>
+    <script src="/Scripts/logins.js" ></script>
+
     <!--Pagina-->
     <link rel="icon" type="image/x-icon" href="/img/favicon.png">
 
@@ -23,15 +30,20 @@
     <div class="container col-6 p-3 bg-light-subtle mt-5 rounded-2">
         <form>
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Usuario</label>
-              <input type="email" class="form-control" id="user" aria-describedby="emailHelp">
+              <label for="user" class="form-label">Usuario</label>
+              <input type="text" class="form-control" id="user">
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+              <label for="pass" class="form-label">Contraseña</label>
               <input type="password" class="form-control" id="pass">
             </div>
             <button type="submit" class="btn btn-primary" id="logInbtn">Continuar</button>
-          </form>
+
+            <div id="infoDiv">
+              
+            </div>
+
+        </form>
     </div>
 
     <!--Bootstrap-->
