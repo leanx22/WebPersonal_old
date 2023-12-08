@@ -15,13 +15,14 @@ class Proyecto
 {
     private int $id;
     private string $titulo;
-    private string $link;
-    private string $github;
-    private string $foto;
+    private string|null $link;
+    private string|null $github;
+    private string|null $foto;
     private bool $isActive;
+    private bool $hasBadge;
+    private string|null $badgeText;
 
-
-    function __construct(bool $isActive,string $titulo, string $github = null, string $link=null, string $foto=null, int $id=-1)
+    function __construct(bool $isActive,string $titulo, string|null $github = null, string|null $link=null, bool $hasBadge = false, string|null $badgeText = null,string|null $foto=null, int $id=-1)
     {
         $this->id = $id;
         $this->titulo = $titulo;
@@ -29,6 +30,8 @@ class Proyecto
         $this->github = $github;
         $this->foto = $foto;
         $this->isActive = $isActive;
+        $this->hasBadge = $hasBadge;
+        $this->badgeText = $badgeText;
     }
 
     #region GETS
@@ -43,17 +46,17 @@ class Proyecto
         return $this->titulo;
     }
 
-    public function getLink():string
+    public function getLink():string|null
     {
         return $this->link;
     }
 
-    public function getGitHub():string
+    public function getGitHub():string|null
     {
         return $this->github;
     }
 
-    public function getPathFoto():string
+    public function getPathFoto():string|null
     {
         return $this->foto;
     }
@@ -62,6 +65,17 @@ class Proyecto
     {
         return $this->isActive;
     }
+
+    public function getBadgeStatus():bool
+    {
+        return $this->hasBadge;
+    }
+
+    public function getBadgeText():string|null
+    {
+        return $this->hasBadge ? $this->badgeText : "N/D";
+    }
+
     #endregion
 
     public static function obtenerProyectoPorID(int $id):string
@@ -73,7 +87,7 @@ class Proyecto
 
         //Validar que exista el ID!
         $obj = $consulta->fetch(PDO::FETCH_ASSOC);
-        $resultado = new Proyecto($obj["activo"],$obj["nombre"],$obj["github"],$obj["link"],$obj["path_foto"],$id);
+        $resultado = new Proyecto($obj["activo"],$obj["nombre"],$obj["github"],$obj["link"],$obj["badge"],$obj["badge_text"],$obj["path_foto"],$id);
         return json_encode($resultado);
     }
 
@@ -86,7 +100,7 @@ class Proyecto
 
         while($obj = $consulta->fetch(PDO::FETCH_ASSOC))
         {
-            $proyecto = new Proyecto($obj["activo"],$obj["nombre"],$obj["github"],$obj["link"],$obj["path_foto"],$obj["id"]);;
+            $proyecto = new Proyecto($obj["activo"],$obj["nombre"],$obj["github"],$obj["link"],$obj["badge"],$obj["badge_text"],$obj["path_foto"],$obj["id"]);;
 
             array_push($array_resultados,$proyecto);
         }
@@ -103,7 +117,7 @@ class Proyecto
 
         while($obj = $consulta->fetch(PDO::FETCH_ASSOC))
         {
-            $proyecto = new Proyecto($obj["activo"],$obj["nombre"],$obj["github"],$obj["link"],$obj["path_foto"],$obj["id"]);;
+            $proyecto = new Proyecto($obj["activo"],$obj["nombre"],$obj["github"],$obj["link"],$obj["badge"],$obj["badge_text"],$obj["path_foto"],$obj["id"]);;
 
             array_push($array_resultados,$proyecto);
         }

@@ -75,7 +75,7 @@
     <div class="row d-flex aboutMe">
       <!--Imagen-->
       <div class="col-12 col-sm-4 col-xl-2 d-flex align-items-center justify-content-center justify-content-sm-end justify-content-lg-center border border-2 border-dark bg-dark">
-        <img class="rounded-circle" src="/img/personal/miFoto.jpg">
+        <img class="rounded-circle" src="/img/personal/miFotoSmall.jpg">
       </div>
       
       <!--Sobre mi-->
@@ -107,17 +107,33 @@
     <!--Proyectos-->
     <div class="proyectos row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 bg-dark">
       {% for proyecto in proyectos %}
+        {% if proyecto.getStatus() == true %}
             <div class="col">
                 <div class="card h-100">
                     <img src="/img/proyectos/{{ proyecto.getPathFoto() }}"" class="card-img-top" alt="imagen del proyecto"> <!--Va con ''??-->
                     <div class="card-body">
-                        <h5 class="card-title">{{ proyecto.getTitulo() }}</h5>
+                        <h4 class="card-title">{{ proyecto.getTitulo() }}</h4>
+                        {%if proyecto.getBadgeStatus() == true %}<span class="badge rounded-pill text-bg-warning mb-2">{{proyecto.getBadgeText()}}</span>{% endif %}
                         <p class="card-text"> 
-                          {{ proyecto.obtenerDescripcion()|raw }}
-                        </p>
+                        {{ proyecto.obtenerDescripcion()|raw }}
+                        </p>                        
+                    </div>
+                    <div class="d-grid gap-2 d-md-block m-2">
+                      {%if proyecto.getGitHub()!=null%}
+                      <a class="btn btn-primary" href="{{proyecto.getGitHub()}}" role="button" target="_blank">Ver en GitHub</a>
+                      {% else %}
+                      <a class="btn btn-primary disabled" href="#" role="button">Sin repositorio</a>
+                      {% endif %}
+
+                      {%if proyecto.getLink()!=null%}
+                      <a class="btn btn-success" href="{{proyecto.getLink()}}" role="button" target="_blank">Ir a la página</a>
+                      {% else %}
+                      <a class="btn btn-success disabled" href="#" role="button">No está hosteado</a>
+                      {% endif %}
                     </div>
                 </div>
             </div>
+          {% endif %}
         {% endfor %}
     </div>
 
@@ -147,7 +163,6 @@
         <div class="col-6 col-md-3 d-flex justify-content-center">
           <img src="/img/tecnologias/php-144.png" alt="Logo 1" class="img-fluid">
         </div>
-
 
         <div class="col-6 col-md-3 d-flex justify-content-center">
           <img src="/img/tecnologias/typescript-144.png" alt="Logo 1" class="img-fluid">
