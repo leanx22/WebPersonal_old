@@ -19,5 +19,4 @@ class HomeController{
         return $view->render($respuesta, 'index.html', $args);
     }
 
-
 }
