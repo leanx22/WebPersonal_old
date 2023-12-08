@@ -21,8 +21,9 @@ class Proyecto
     private bool $isActive;
     private bool $hasBadge;
     private string|null $badgeText;
+    private int $vistas;
 
-    function __construct(bool $isActive,string $titulo, string|null $github = null, string|null $link=null, bool $hasBadge = false, string|null $badgeText = null,string|null $foto=null, int $id=-1)
+    function __construct(bool $isActive,string $titulo, string|null $github = null, string|null $link=null, bool $hasBadge = false, string|null $badgeText = null,string|null $foto=null, int $vistas=0,int $id=-1)
     {
         $this->id = $id;
         $this->titulo = $titulo;
@@ -32,6 +33,7 @@ class Proyecto
         $this->isActive = $isActive;
         $this->hasBadge = $hasBadge;
         $this->badgeText = $badgeText;
+        $this->vistas = $vistas;
     }
 
     #region GETS
@@ -76,6 +78,11 @@ class Proyecto
         return $this->hasBadge ? $this->badgeText : "N/D";
     }
 
+    public function getVistas()
+    {
+        return $this->vistas;
+    }
+
     #endregion
 
     public static function obtenerProyectoPorID(int $id):string
@@ -87,7 +94,7 @@ class Proyecto
 
         //Validar que exista el ID!
         $obj = $consulta->fetch(PDO::FETCH_ASSOC);
-        $resultado = new Proyecto($obj["activo"],$obj["nombre"],$obj["github"],$obj["link"],$obj["badge"],$obj["badge_text"],$obj["path_foto"],$id);
+        $resultado = new Proyecto($obj["activo"],$obj["nombre"],$obj["github"],$obj["link"],$obj["badge"],$obj["badge_text"],$obj["path_foto"],$obj["vistas"],$id);
         return json_encode($resultado);
     }
 
@@ -100,7 +107,7 @@ class Proyecto
 
         while($obj = $consulta->fetch(PDO::FETCH_ASSOC))
         {
-            $proyecto = new Proyecto($obj["activo"],$obj["nombre"],$obj["github"],$obj["link"],$obj["badge"],$obj["badge_text"],$obj["path_foto"],$obj["id"]);;
+            $proyecto = new Proyecto($obj["activo"],$obj["nombre"],$obj["github"],$obj["link"],$obj["badge"],$obj["badge_text"],$obj["path_foto"],$obj["vistas"],$obj["id"]);;
 
             array_push($array_resultados,$proyecto);
         }
@@ -117,7 +124,7 @@ class Proyecto
 
         while($obj = $consulta->fetch(PDO::FETCH_ASSOC))
         {
-            $proyecto = new Proyecto($obj["activo"],$obj["nombre"],$obj["github"],$obj["link"],$obj["badge"],$obj["badge_text"],$obj["path_foto"],$obj["id"]);;
+            $proyecto = new Proyecto($obj["activo"],$obj["nombre"],$obj["github"],$obj["link"],$obj["badge"],$obj["badge_text"],$obj["path_foto"],$obj["vistas"],$obj["id"]);;
 
             array_push($array_resultados,$proyecto);
         }
