@@ -15,6 +15,7 @@ use App\Controllers\HomeController;
 
 require_once __DIR__.'/../Controllers/loginController.php';
 use App\Controllers\loginController;
+use App\extra\estadisticas\Estadisticas;
 
 require_once __DIR__.'/../Models/Usuario.php';
 use App\Models\Usuario;
@@ -31,6 +32,16 @@ $app->get('/login', loginController::class . '::cargarVistaLogIn');
 
 $app->post('/login', Usuario::class . '::login')
 ->add(MW::class.":validarUsuarioExistente");
+
+$app->group('/estadisticas', function(RouteCollectorProxy $grupo){
+
+    $grupo->post('/general', Estadisticas::class . ":sumarVistaGeneral");
+    $grupo->post('/github', Estadisticas::class . ":sumarVistaGitHub");
+    $grupo->post('/linkedin', Estadisticas::class . ":sumarVistaLinkedIn");
+    $grupo->post('/cv', Estadisticas::class . ":sumarVistaCV");
+});
+
 //mW->que me cree la JWT
 //mW->que el usuario exista en base, y me cree una propiedad / stdclass que contenga todos los datos.
+
 $app->run();

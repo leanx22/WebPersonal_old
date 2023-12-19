@@ -36,8 +36,46 @@ class Estadisticas
         $consulta->execute();
 
         $res_obj = $consulta->fetchObject();        
+        return $res_obj->visitas_generales;
+    }
 
-        return $res_obj['visitas_generales'];
+    public static function obtenerVistasGitHub():int
+    {
+        $bbdd = AccesoDatos::obtenerInstancia();
+
+        $consulta = $bbdd->prepararConsulta(
+            "SELECT `vistas_github` FROM estadisticas"
+        );
+        $consulta->execute();
+
+        $res_obj = $consulta->fetchObject();        
+        return $res_obj->vistas_github;
+    }
+
+    public static function obtenerVistasLinkedIn():int
+    {
+        $bbdd = AccesoDatos::obtenerInstancia();
+
+        $consulta = $bbdd->prepararConsulta(
+            "SELECT `vistas_linkedin` FROM estadisticas"
+        );
+        $consulta->execute();
+
+        $res_obj = $consulta->fetchObject();        
+        return $res_obj->vistas_linkedin;
+    }
+
+    public static function obtenerVistasCV():int
+    {
+        $bbdd = AccesoDatos::obtenerInstancia();
+
+        $consulta = $bbdd->prepararConsulta(
+            "SELECT `vistas_cv` FROM estadisticas"
+        );
+        $consulta->execute();
+
+        $res_obj = $consulta->fetchObject();        
+        return $res_obj->vistas_cv;
     }
 
     public static function reiniciarVistasGenerales():bool
@@ -52,8 +90,10 @@ class Estadisticas
         return $consulta->rowCount()==0 ? false:true;
     }
 
-    public static function sumarVistaGeneral():bool
+    public static function sumarVistaGeneral(Request $peticion, Response $respuesta):Response
     {
+        $obj_retorno = new stdClass();
+
         $vistas_generales = self::obtenerVistasGenerales();
         $vistas_generales++;
 
@@ -64,7 +104,78 @@ class Estadisticas
         $consulta->bindValue(":vistas", $vistas_generales, PDO::PARAM_INT);
         $consulta->execute();
 
-        return $consulta->rowCount()==0 ? false:true;
+        $res = $consulta->rowCount()==0 ? false:true;
+        $obj_retorno->exito = $res;
+        $res == true ? $respuesta = $respuesta->withStatus(200) : $respuesta = $respuesta->withStatus(500);
+        
+        $respuesta->getBody()->write(json_encode($obj_retorno));
+        return $respuesta;
+    }
+
+    public static function sumarVistaGitHub(Request $peticion, Response $respuesta):Response
+    {
+        $obj_retorno = new stdClass();
+
+        $vistas = self::obtenerVistasGitHub();
+        $vistas++;
+
+        $bbdd = AccesoDatos::obtenerInstancia();
+        $consulta = $bbdd->prepararConsulta(
+            "UPDATE `estadisticas` SET `vistas_github`= :vistas"
+        );
+        $consulta->bindValue(":vistas", $vistas, PDO::PARAM_INT);
+        $consulta->execute();
+
+        $res = $consulta->rowCount()==0 ? false:true;
+        $obj_retorno->exito = $res;
+        $res == true ? $respuesta = $respuesta->withStatus(200) : $respuesta = $respuesta->withStatus(500);
+        
+        $respuesta->getBody()->write(json_encode($obj_retorno));
+        return $respuesta;
+    }
+
+    public static function sumarVistaLinkedIn(Request $peticion, Response $respuesta):Response
+    {       
+        $obj_retorno = new stdClass();
+
+        $vistas = self::obtenerVistasLinkedIn();
+        $vistas++;
+
+        $bbdd = AccesoDatos::obtenerInstancia();
+        $consulta = $bbdd->prepararConsulta(
+            "UPDATE `estadisticas` SET `vistas_linkedin`= :vistas"
+        );
+        $consulta->bindValue(":vistas", $vistas, PDO::PARAM_INT);
+        $consulta->execute();
+
+        $res = $consulta->rowCount()==0 ? false:true;
+        $obj_retorno->exito = $res;
+        $res == true ? $respuesta = $respuesta->withStatus(200) : $respuesta = $respuesta->withStatus(500);
+        
+        $respuesta->getBody()->write(json_encode($obj_retorno));
+        return $respuesta;
+    }
+
+    public static function sumarVistaCV(Request $peticion, Response $respuesta):Response
+    {       
+        $obj_retorno = new stdClass();
+
+        $vistas = self::obtenerVistasCV();
+        $vistas++;
+
+        $bbdd = AccesoDatos::obtenerInstancia();
+        $consulta = $bbdd->prepararConsulta(
+            "UPDATE `estadisticas` SET `vistas_cv`= :vistas"
+        );
+        $consulta->bindValue(":vistas", $vistas, PDO::PARAM_INT);
+        $consulta->execute();
+
+        $res = $consulta->rowCount()==0 ? false:true;
+        $obj_retorno->exito = $res;
+        $res == true ? $respuesta = $respuesta->withStatus(200) : $respuesta = $respuesta->withStatus(500);
+        
+        $respuesta->getBody()->write(json_encode($obj_retorno));
+        return $respuesta;
     }
 
 }
