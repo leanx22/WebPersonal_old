@@ -8,9 +8,9 @@ class AccesoDatos
 {
     private static AccesoDatos $instancia;
     private PDO $objetoPDO;
-    const DB_NAME = "id21616592_personal_bd";
-    const DB_USER = "id21616592_eb8l835n";
-    const DB_PASS = "qq$.f0}wKA=w]^Q";
+    const DB_NAME = "personal_bd";
+    const DB_USER = "root";
+    const DB_PASS = "";
     private function __construct()
     {
         try { 
