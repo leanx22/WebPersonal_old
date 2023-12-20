@@ -1,0 +1,6 @@
+[
+    {"id":1,"desc":"El código de esta web. Realizada utilizando <strong>HTML, CSS, BOOTSTRAP, Slim, Twig y MySQL</strong>"},
+    {"id":2,"desc":"Aplicación de consola que permite el <strong>filtrado</strong> de un listado de películas por género, duración, etc e incluso <strong>guardar e importar desde archivos</strong>. Programada en <strong>C</strong>."},
+    {"id":3,"desc":"Una copia del famoso juego de cartas UNO, recreado en <strong>C#</strong> utilizando <strong>windowsForms</strong> para la parte gráfica y <strong>multihilo</strong> para permitir partidas múltiples. "},
+    {"id":4,"desc":"Aplicación tipo API Rest para acciones de alta, baja y modificación de juguetes haciendo uso de <strong>Slim Framework, PHP, y JWT</strong>."}
+]

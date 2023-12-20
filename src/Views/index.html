@@ -17,6 +17,13 @@
   <!--CSS-->
   <link rel="stylesheet" href="/styles/indexStyle.css">
 
+  <!--JQUERY-->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+  <!--Scripts-->
+  <script src="/Scripts/links.js"></script>
+  <script src="/Scripts/home.js"></script>
+
   <!--Pagina-->
   <link rel="icon" type="image/x-icon" href="/img/favicon.png">
   <title>Leandro Guia | Backend Developer</title>
@@ -54,15 +61,15 @@
       </div>
 
       <div class="col-12 col-lg-6 d-flex flex-row flex-lg-column justify-content-center align-items-center">
-        <a href="/files/CV_Leandro Guia_sF.pdf" class="btn btn-outline-light" target="_blank">
+        <button class="btn btn-outline-light" id="btnCV">
           CV
-        </a>
-        <a href="https://github.com/leanx22" target="_blank" class="btn btn-outline-light midBtn">
+        </button>
+        <button class="btn btn-outline-light midBtn" id="btnGit">
           GitHub
-        </a>
-        <a href="https://www.linkedin.com/in/leandro-guia-dev" target="_blank" class="btn btn-outline-light">
+        </button>
+        <button class="btn btn-outline-light" id="btnLinkedIn">
           LinkedIn
-        </a>
+        </button>
       </div>
 
     </div>
@@ -104,46 +111,37 @@
       </div>
     </div>
 
-    <!--Proyectos 420x240-->
+    <!--Proyectos-->
     <div class="proyectos row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 bg-dark">
-      <div class="col">
-        <div class="card h-100">
-          <img src="./img/proyectos/consola.jpg" class="card-img-top" alt="imagen del proyecto">
-          <div class="card-body">
-            <h5 class="card-title">Administrador de películas</h5>
-            <p class="card-text">Aplicación de consola que permite el <strong>filtrado de un listado de películas</strong> por género, duración, etc e incluso guardar e importar desde <strong>archivos</strong>. Programada en <strong>C</strong>.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="./img/proyectos/placeHolder.jpg" class="card-img-top" alt="imagen del proyecto">
-          <div class="card-body">
-            <h5 class="card-title">CRUD Juguetería</h5>
-            <p class="card-text">Aplicación tipo API Rest para acciones de alta, baja y modificación de juguetes haciendo uso de <strong>Slim Framework, PHP, y JWT</strong>.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="./img/proyectos/uno.jpg" class="card-img-top" alt="imagen del proyecto">
-          <div class="card-body">
-            <h5 class="card-title">UNO!</h5>
-            <p class="card-text">
-              Una copia del famoso juego de cartas UNO, recreado en <strong>C#</strong> utilizando <strong>windowsForms</strong> para la parte gráfica y <strong>multihilo</strong> para permitir partidas múltiples.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="./img/proyectos/web.jpg" class="card-img-top" alt="imagen del proyecto">
-          <div class="card-body">
-            <h5 class="card-title">WebPersonal</h5>
-            <p class="card-text">El código de la página actual, creada utilizando <strong>HTML</strong>, <strong>CSS/Bootstrap</strong> y <strong>Slim Framework</strong>.</p>
-          </div>
-        </div>
-      </div>
+      {% for proyecto in proyectos %}
+        {% if proyecto.getStatus() == true %}
+            <div class="col">
+                <div class="card h-100">
+                    <img src="/img/proyectos/{{ proyecto.getPathFoto() }}"" class="card-img-top" alt="imagen del proyecto"> <!--Va con ''??-->
+                    <div class="card-body">
+                        <h4 class="card-title">{{ proyecto.getTitulo() }}</h4>
+                        {%if proyecto.getBadgeStatus() == true %}<span class="badge rounded-pill text-bg-warning mb-2">{{proyecto.getBadgeText()}}</span>{% endif %}
+                        <p class="card-text"> 
+                        {{ proyecto.obtenerDescripcion()|raw }}
+                        </p>                        
+                    </div>
+                    <div class="d-grid gap-2 d-md-block m-2">
+                      {%if proyecto.getGitHub()!=null%}
+                      <a class="btn btn-primary" href="{{proyecto.getGitHub()}}" role="button" target="_blank">Ver en GitHub</a>
+                      {% else %}
+                      <a class="btn btn-primary disabled" href="#" role="button">Sin repositorio</a>
+                      {% endif %}
+
+                      {%if proyecto.getLink()!=null%}
+                      <a class="btn btn-success" href="{{proyecto.getLink()}}" role="button" target="_blank">Ir a la página</a>
+                      {% else %}
+                      <a class="btn btn-success disabled" href="#" role="button">No está hosteado</a>
+                      {% endif %}
+                    </div>
+                </div>
+            </div>
+          {% endif %}
+        {% endfor %}
     </div>
 
   </div>
@@ -172,7 +170,6 @@
         <div class="col-6 col-md-3 d-flex justify-content-center">
           <img src="/img/tecnologias/php-144.png" alt="Logo 1" class="img-fluid">
         </div>
-
 
         <div class="col-6 col-md-3 d-flex justify-content-center">
           <img src="/img/tecnologias/typescript-144.png" alt="Logo 1" class="img-fluid">
