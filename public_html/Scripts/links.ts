@@ -1,6 +1,6 @@
 ///<reference path="../../node_modules/@types/jquery/index.d.ts" />
 
-const URL_PAGINA = "http://localhost/";
+const URL_PAGINA = "https://leandev.000webhostapp.com/";
 
 function EnviarAlert(mensaje:string, tipo:string = "success"):string
 {

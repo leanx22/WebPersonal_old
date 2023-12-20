@@ -27,6 +27,23 @@ $app = AppFactory::create();
 $vistas = Twig::create(__DIR__.'/../Views', ['args'=>false]);
 $app->add(TwigMiddleware::create($app,$vistas));//2args a quien y que
 
+//LAZY CORS//
+$app->options('/{routes:.+}', function ($request, $response, $args) {
+    return $response;
+});
+
+$app->add(function ($request, $handler) {
+    $response = $handler->handle($request);
+    return $response
+            ->withHeader('Access-Control-Allow-Origin', 'https://leandev.000webhostapp.com/estadisticas/general')
+            ->withHeader('Access-Control-Allow-Origin', 'https://leandev.000webhostapp.com/estadisticas/github')
+            ->withHeader('Access-Control-Allow-Origin', 'https://leandev.000webhostapp.com/estadisticas/linkedin')
+            ->withHeader('Access-Control-Allow-Origin', 'https://leandev.000webhostapp.com/estadisticas/cv')
+            ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+            ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH');
+});
+//LAZY CORS//
+
 $app->get('/', HomeController::class . '::index');
 $app->get('/login', loginController::class . '::cargarVistaLogIn');
 
