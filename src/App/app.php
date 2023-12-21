@@ -39,6 +39,7 @@ $app->add(function ($request, $handler) {
             ->withHeader('Access-Control-Allow-Origin', 'https://leandev.000webhostapp.com/estadisticas/github')
             ->withHeader('Access-Control-Allow-Origin', 'https://leandev.000webhostapp.com/estadisticas/linkedin')
             ->withHeader('Access-Control-Allow-Origin', 'https://leandev.000webhostapp.com/estadisticas/cv')
+            ->withHeader('Access-Control-Allow-Origin', 'http://localhost/')
             ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
             ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH');
 });

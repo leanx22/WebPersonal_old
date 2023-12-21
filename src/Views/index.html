@@ -114,13 +114,16 @@
     <!--Proyectos-->
     <div class="proyectos row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 bg-dark">
       {% for proyecto in proyectos %}
-        {% if proyecto.getStatus() == true %}
             <div class="col">
                 <div class="card h-100">
                     <img src="/img/proyectos/{{ proyecto.getPathFoto() }}"" class="card-img-top" alt="imagen del proyecto"> <!--Va con ''??-->
                     <div class="card-body">
                         <h4 class="card-title">{{ proyecto.getTitulo() }}</h4>
-                        {%if proyecto.getBadgeStatus() == true %}<span class="badge rounded-pill text-bg-warning mb-2">{{proyecto.getBadgeText()}}</span>{% endif %}
+                        {% for badge in badges %}
+                          {% if badge.getIDproyecto() == proyecto.getID() %}
+                          <span class="badge rounded-pill text-bg-{{badge.getColor()}} mb-2">{{badge.getTexto()}}</span>
+                          {% endif %}
+                        {% endfor %}
                         <p class="card-text"> 
                         {{ proyecto.obtenerDescripcion()|raw }}
                         </p>                        
@@ -140,7 +143,6 @@
                     </div>
                 </div>
             </div>
-          {% endif %}
         {% endfor %}
     </div>
 
