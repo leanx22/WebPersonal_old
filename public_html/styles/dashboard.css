@@ -1,0 +1,25 @@
+body{
+    background-color: rgb(236, 236, 236);
+    margin-top: 95px;
+}
+
+.tarjetas p{
+    margin : 0px;
+    text-align: center;
+}
+
+.tarjetas .tarj-txt{
+    color: rgb(114, 114, 114);
+    font-weight: 600;
+}
+
+.tarjetas .tarj-num{
+    color: rgb(90, 90, 90);
+    font-weight: 600;
+    font-size: 42px;
+}
+
+h3{
+    color:aliceblue;
+}
+

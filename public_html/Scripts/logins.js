@@ -18,10 +18,9 @@ $(() => {
             if (obj_ret.exito == true) {
                 mostrarAlert("success", '<div class="spinner-border spinner-border-sm" aria-hidden="true"></div>' + obj_ret.mensaje);
                 localStorage.setItem("user_data", obj_ret.token);
-                /*
-                setTimeout(()=>{
-                    $(location).attr('href',URL_PAGINA+'dashboard');
-                },1200);*/
+                setTimeout(() => {
+                    $(location).attr('href', URL_PAGINA + 'dashboard');
+                }, 1200);
             }
         }).fail(() => {
             mostrarAlert("danger", "No se pudo iniciar sesion.");

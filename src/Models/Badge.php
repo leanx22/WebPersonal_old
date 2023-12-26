@@ -95,4 +95,15 @@ class Badge
         return $array_resultados;     
     }
 
+    public static function crearNueva()
+    {
+        
+    }
+
+    public static function eliminar(int $id)
+    {
+
+    }
+
+    
 }

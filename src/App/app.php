@@ -17,6 +17,9 @@ require_once __DIR__.'/../Controllers/loginController.php';
 use App\Controllers\loginController;
 use App\extra\estadisticas\Estadisticas;
 
+require_once __DIR__.'/../Controllers/dashboardController.php';
+use App\Controllers\DashboardController;
+
 require_once __DIR__.'/../Models/Usuario.php';
 use App\Models\Usuario;
 
@@ -50,6 +53,8 @@ $app->get('/login', loginController::class . '::cargarVistaLogIn');
 
 $app->post('/login', Usuario::class . '::login')
 ->add(MW::class.":validarUsuarioExistente");
+
+$app->get('/dashboard', DashboardController::class . '::getDashboard');
 
 $app->group('/estadisticas', function(RouteCollectorProxy $grupo){
 
